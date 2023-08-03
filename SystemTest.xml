@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="System Test For all Happy Pass ">
+    <suite-files preserve-order="true">
+        <suite-file path="SearchSuite.xml"/>
+        <suite-file path="VerifyFromFieldsAreMandatoryFieldsSuite.xml"/>
+        <!--suite-file path="CompleteInitiativeDataSuite.xml"/-->
+        <suite-file path="BackAndCancelCompleteInitiativeSuite.xml"/>
+    </suite-files>
+</suite>
