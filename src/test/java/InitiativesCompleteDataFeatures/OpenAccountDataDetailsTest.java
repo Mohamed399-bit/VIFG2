@@ -6,25 +6,37 @@
  * ----- ---------------------  ----------  ----------------------------------------
  * 1.00  Eng. Mohamed Abden 24/05/2023 - Script created.
  */
-package tests;
+package InitiativesCompleteDataFeatures;
 
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.AccountDataDetailsPage;
+import pages.ExistInitiativesPage;
+import pages.InitiativeDetailsPage;
+import tests.TestBase;
+import utilities.SetURL;
 
 
+public class OpenAccountDataDetailsTest extends TestBase {
 
-public class CompletedInitiativeDataTest extends TestBase {
-
+    ExistInitiativesPage existInitiativesObject;
     InitiativeDetailsPage initiativeDetailsObject;
     AccountDataDetailsPage accountDataDetailsObject;
-    @Test(priority = 3)
+    @Test(priority = 14)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Complete Data For Uncompleted Initiative")
+    @Description("Open Account Data Details")
     @Feature("Complete Data For Uncompleted Initiative")
     @Epic("Uncompleted Initiative")
-    public void CompleteDataForUncompletedInitiative() throws InterruptedException {
+    public void openAccountDataDetails() throws InterruptedException {
 
+        existInitiativesObject = new ExistInitiativesPage(driver);
+        existInitiativesObject.clickOnUnCompletedInitiatives();
+        Thread.sleep(2000);
+        existInitiativesObject.getDataForFirstInitiative();
+        existInitiativesObject.scrollDown();
+        existInitiativesObject.clickOnViewInitiativeNumber(existInitiativesObject.UICNumber);
+
+        Thread.sleep(2000);
         initiativeDetailsObject = new InitiativeDetailsPage(driver);
         initiativeDetailsObject.waitUntilPageLoaded();
         initiativeDetailsObject.OpenAccountDataDetails();
@@ -35,6 +47,8 @@ public class CompletedInitiativeDataTest extends TestBase {
         initiativeDetailsObject.clickOnBackButton2();
 
         Thread.sleep(2000);
+        SetURL.refreshPage();
+        Thread.sleep(1500);
 
     }
 }

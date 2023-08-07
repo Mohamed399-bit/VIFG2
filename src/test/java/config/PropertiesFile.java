@@ -31,4 +31,16 @@ public class PropertiesFile {
             throw new RuntimeException(e);
         }
     }
+
+    public String getURL(){
+        try {
+            InputStream input = new FileInputStream(System.getProperty("user.dir")+ "\\src\\test\\java\\config\\config.properties");
+            prop.load(input);
+            prop.getProperty("Url");
+            TestBase.url = prop.getProperty("Url");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return prop.getProperty("Url");
+    }
 }

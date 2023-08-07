@@ -4,7 +4,8 @@
     <test name="Complete Initiative Data" preserve-order="true">
         <classes>
             <class name="SearchFeatures.LoginTest"/>
-            <class name="SearchFeatures.SearchByInvalidProgramNameTest"/>
+            <class name="InitiativesCompleteDataFeatures.OpenInitiativeTest"/>
+            <class name="tests.CompletedInitiativeDataTest"/>
         </classes>
     </test>
 </suite>

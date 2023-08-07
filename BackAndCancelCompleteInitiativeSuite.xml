@@ -10,6 +10,7 @@
             <class name="InitiativesCompleteDataFeatures.CancelCompleteInitiativeDataTest"/>
             <class name="InitiativesCompleteDataFeatures.OpenPreviousProceduresTest"/>
             <class name="InitiativesCompleteDataFeatures.DisplayCompletedInitiativeDataTest"/>
+            <class name="InitiativesCompleteDataFeatures.OpenAccountDataDetailsTest"/>
             <class name="InitiativesCompleteDataFeatures.OpenInitiativeDetailsTest"/>
         </classes>
     </test>

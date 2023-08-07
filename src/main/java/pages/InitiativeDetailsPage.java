@@ -52,6 +52,8 @@ public class InitiativeDetailsPage extends PageBase{
     By validationMessageDuration = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[5]/div/div/div/div/div[2]/div/div/div");
     By durationLabel = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[5]/div/div/div/div/div[2]/div/label");
     By headingSection = By.xpath("//div[@class='heading']");
+    By accountsDiv = By.xpath("//ncgr-table[@class='ncgr-element mt-4 mb-2 d-block']");
+    WebElement accountTable = getElement(accountsDiv).findElement(By.tagName("table"));
 
     public void enterStrategicObjective(String Objective)  {
         waitUntilLoaderDisappear();
@@ -132,6 +134,16 @@ public class InitiativeDetailsPage extends PageBase{
         scrollToBottom();
         clickButton(backBtn);
     }
+    public void clickOnBackButton2() throws InterruptedException {
+        scrollToBottom();
+        Thread.sleep(1000);
+        scrollToBottom();
+        Thread.sleep(1000);
+        scrollToBottom();
+        Thread.sleep(1000);
+        scrollToBottom();
+        clickButton(backBtn);
+    }
 
     public void VerifyFromInitiativeDetailsOpenTure(String UIC , String initiativeId, String IProgram){
         Assert.assertEquals(getTxt(UICTxt), UIC);
@@ -185,5 +197,20 @@ public class InitiativeDetailsPage extends PageBase{
         waitUntilLoaderDisappear();
         Assert.assertEquals(getTxt(headingSection),headingName);
         System.out.println("Heading Section is : " + getTxt(headingSection));
+    }
+
+    public void OpenAccountDataDetails() throws InterruptedException {
+        scrollToBottom2();
+        Thread.sleep(500);
+        scrollToBottom2();
+        WebElement TBody = accountTable.findElement(By.tagName("tbody"));
+        List<WebElement> rows = TBody.findElements(By.tagName("tr"));
+        //System.out.println("Number of rows : " + rows.size());
+        List<WebElement> tds = rows.get(0).findElements(By.tagName("td"));
+        WebElement lastCol = tds.get(tds.size()-1);
+        WebElement detailsLink = lastCol.findElement(By.tagName("a"));
+        clickOnButtonUsingJavaScript(detailsLink);
+        waitUntilLoaderOfTableDisappear();
+
     }
 }

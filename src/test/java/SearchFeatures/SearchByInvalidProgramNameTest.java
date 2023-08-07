@@ -37,7 +37,7 @@ public class SearchByInvalidProgramNameTest extends TestBase {
 
         vrpProgramListObject = new VRPProgramListPage(driver);
        // vrpProgramListObject.selectProgramName("ascdfsasds");    //Test Env
-        vrpProgramListObject.selectProgramName2(Helper.generateRandomNumber2(20,22));
+        vrpProgramListObject.selectProgramName2(Helper.generateRandomNumber2(19,21));
         //vrpProgramListObject.selectProgramName("TEST");      // pre-prod Env
         searchObject.clickOnSearchButton();
 
