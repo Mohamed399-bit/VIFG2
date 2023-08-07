@@ -44,6 +44,10 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>${testNGSuite}</suiteXmlFile>
                         </suiteXmlFiles>
+
+                        <encoding>UTF-8</encoding>
+                        <argLine>-Xms256m -Xmx512m -XX:MaxPermSize=128m -ea
+                            -Dfile.encoding=UTF-8</argLine>
                     </configuration>
                 </plugin>
 
