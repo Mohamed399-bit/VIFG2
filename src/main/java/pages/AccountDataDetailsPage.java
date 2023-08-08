@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -16,12 +15,12 @@ public class AccountDataDetailsPage extends PageBase{
     }
 
     By accountDetails = By.xpath("//td[@colspan='4']");
-    List<WebElement> p = getElement(accountDetails).findElements(By.tagName("p"));
-    WebElement contractAmount = p.get(0);
-    WebElement costAmount = p.get(1);
-    WebElement allocateAmount = p.get(2);
-    WebElement ActualAmount = p.get(3);
-    WebElement ActualAmount2 = p.get(4);
+    List<WebElement> amounts = getElement(accountDetails).findElements(By.tagName("p"));
+    WebElement contractAmount = amounts.get(0);
+    WebElement costAmount = amounts.get(1);
+    WebElement allocateAmount = amounts.get(2);
+    WebElement actualAmount = amounts.get(3);
+    WebElement actualAmount2 = amounts.get(4);
 
     public void VerifyThatDataIsAppear(){
 
@@ -31,10 +30,10 @@ public class AccountDataDetailsPage extends PageBase{
         System.out.println("Cost Amount is : " + costAmount.getText());
         Assert.assertNotEquals(allocateAmount.getText(),"");
         System.out.println("Allocate Amount is : " + allocateAmount.getText());
-        Assert.assertNotEquals(ActualAmount.getText(),"");
-        System.out.println("Actual Amount is : " + ActualAmount.getText());
-        Assert.assertNotEquals(ActualAmount2.getText(),"");
-        System.out.println("Actual Amount2 is : " + ActualAmount2.getText());
+        Assert.assertNotEquals(actualAmount.getText(),"");
+        System.out.println("Actual Amount is : " + actualAmount.getText());
+        Assert.assertNotEquals(actualAmount2.getText(),"");
+        System.out.println("Actual Amount2 is : " + actualAmount2.getText());
 
     }
 }

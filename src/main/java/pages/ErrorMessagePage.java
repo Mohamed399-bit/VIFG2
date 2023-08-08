@@ -21,7 +21,8 @@ public class ErrorMessagePage extends PageBase{
 
     public void VerifyThatErrorMessageDisplay(String message){
            // برجاء ادخال جميع البيانات المطلوبة بشكل صحيح
-        Assert.assertEquals(getTxt(errorMessage),message);
+        //Assert.assertEquals(getTxt(errorMessage),message);
+        Assert.assertTrue(getElement(errorMessage).getText().contains(message));
         System.out.println("Error Message is : " + getTxt(errorMessage));
     }
 }

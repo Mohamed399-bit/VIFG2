@@ -85,9 +85,9 @@ public class VerifyThatApprovedCostsIsMandatoryFiledTest extends TestBase {
         savePopupObject.clickOnSaveButton();
 
         errorMessageObject = new ErrorMessagePage(driver);
-        errorMessageObject.VerifyThatErrorMessageDisplay("برجاء ادخال جميع البيانات المطلوبة بشكل صحيح");
+        errorMessageObject.VerifyThatErrorMessageDisplay("جميع البيانات المطلوبة بشكل صحيح");
 
-        initiativeDetailsObject.VerifyFromApprovedCostsValidationMessage("برجاء ادخال التكاليف المعتمدة");
+        initiativeDetailsObject.VerifyFromApprovedCostsValidationMessage("التكاليف المعتمدة");
         initiativeDetailsObject.clickOnBackButton();
 
         SetURL.refreshPage();

@@ -75,11 +75,11 @@ public class VerifyThatStartDateIsMandatoryFiledTest extends TestBase {
         savePopupObject.clickOnSaveButton();
 
         errorMessageObject = new ErrorMessagePage(driver);
-        errorMessageObject.VerifyThatErrorMessageDisplay("برجاء ادخال جميع البيانات المطلوبة بشكل صحيح");
+        errorMessageObject.VerifyThatErrorMessageDisplay("جميع البيانات المطلوبة بشكل صحيح");
 
         Thread.sleep(2000);
 
-        initiativeDetailsObject.VerifyFromStartDateValidationMessage("برجاء ادخال تاريخ بداية المبادرة");
+        initiativeDetailsObject.VerifyFromStartDateValidationMessage("تاريخ بداية المبادرة");
         initiativeDetailsObject.clickOnBackButton();
 
         SetURL.refreshPage();

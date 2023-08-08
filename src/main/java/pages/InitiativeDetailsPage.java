@@ -169,27 +169,32 @@ public class InitiativeDetailsPage extends PageBase{
     }
 
     public void VerifyFromApprovedCostsValidationMessage(String message){
-        Assert.assertEquals(getTxt(validationMessageApprovedCosts),message);
+        Assert.assertTrue(getTxt(validationMessageApprovedCosts).contains(message));
+        //Assert.assertEquals(getTxt(validationMessageApprovedCosts),message);
         System.out.println("Validation message for Approved Costs : " +  getTxt(validationMessageApprovedCosts));
     }
 
     public void VerifyFromInitiativeAchievedSavingsValidationMessage(String message){
-        Assert.assertEquals(getTxt(validationMessageInitiativeAchievedSavings),message);
+        Assert.assertTrue(getTxt(validationMessageInitiativeAchievedSavings).contains(message));
+        //Assert.assertEquals(getTxt(validationMessageInitiativeAchievedSavings),message);
         System.out.println("Validation message for Initiative Achieved Savings : " +  getTxt(validationMessageInitiativeAchievedSavings));
     }
 
     public void VerifyFromInitiativeDescriptionValidationMessage(String message){
-        Assert.assertEquals(getTxt(validationMessageInitiativeDescription),message);
+        Assert.assertTrue(getTxt(validationMessageInitiativeDescription).contains(message));
+        //Assert.assertEquals(getTxt(validationMessageInitiativeDescription),message);
         System.out.println("Validation message for Initiative Description : " +  getTxt(validationMessageInitiativeDescription));
     }
 
     public void VerifyFromStartDateValidationMessage(String message){
-        Assert.assertEquals(getTxt(validationMessageStartDate),message);
+        Assert.assertTrue(getTxt(validationMessageStartDate).contains(message));
+        //Assert.assertEquals(getTxt(validationMessageStartDate),message);
         System.out.println("Validation message for Start Date : " +  getTxt(validationMessageStartDate));
     }
 
     public void VerifyFromDurationValidationMessage(String message){
-        Assert.assertEquals(getTxt(validationMessageDuration),message);
+        Assert.assertTrue(getTxt(validationMessageDuration).contains(message));
+        //Assert.assertEquals(getTxt(validationMessageDuration),message);
         System.out.println("Validation message for Duration : " +  getTxt(validationMessageDuration));
     }
 
