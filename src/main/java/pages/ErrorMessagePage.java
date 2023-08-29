@@ -17,12 +17,13 @@ public class ErrorMessagePage extends PageBase{
     public ErrorMessagePage(WebDriver driver) {
         super(driver);
     }
-    By errorMessage = By.xpath("//div[@role='alert']");
+            By errorMessage = By.xpath("//div[@role='alert']");
 
     public void VerifyThatErrorMessageDisplay(String message){
            // برجاء ادخال جميع البيانات المطلوبة بشكل صحيح
         //Assert.assertEquals(getTxt(errorMessage),message);
-        Assert.assertTrue(getElement(errorMessage).getText().contains(message));
         System.out.println("Error Message is : " + getTxt(errorMessage));
+        Assert.assertTrue(getElement(errorMessage).getText().contains(message));
+
     }
 }

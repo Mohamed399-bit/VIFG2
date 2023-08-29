@@ -12,6 +12,7 @@ import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.TestBase;
+import utilities.Helper;
 import utilities.SetURL;
 
 public class SearchByDurationTest extends TestBase {
@@ -19,6 +20,7 @@ public class SearchByDurationTest extends TestBase {
     HomePage homeObject;
     ExistInitiativesPage existInitiativesObject;
     SearchPage searchObject;
+    DurationListPage durationListObject;
 
     @Test(priority = 3)
     @Severity(SeverityLevel.NORMAL)
@@ -37,10 +39,13 @@ public class SearchByDurationTest extends TestBase {
 
         searchObject = new SearchPage(driver);
         //searchObject.clickOnClearButton();
-        searchObject.searchByDuration(existInitiativesObject.durationTxt);
+        searchObject.clickOnDurationList();
+
+        durationListObject = new DurationListPage(driver);
+        durationListObject.selectDuration(Helper.generateRandomNumber2(0,4));
         searchObject.clickOnSearchButton();
 
-        existInitiativesObject.VerifyThatSearchByDurationIsTrue(existInitiativesObject.durationTxt);
+        existInitiativesObject.VerifyThatSearchByDurationIsTrue();
         //searchObject.clickOnClearButton();
         SetURL.refreshPage();
 

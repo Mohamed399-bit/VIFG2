@@ -37,14 +37,18 @@ public class CompleteInitiativeDetailsPage extends PageBase{
     WebElement initiativeFundingStatusTxt = initiativeData.get(0);
     WebElement initiativeClassificationTxt = initiativeData.get(1);
     WebElement approvedCostsTxt = initiativeData.get(2);
-    By initiativeAchievedSavingsTxt = By.xpath("//*[@id=\"ncgr_id_7-table\"]/tfoot/tr/td[1]");
+
+    By achievedSavingsTable = By.xpath("//tfoot[@class='ncgr-table-tfoot ng-star-inserted']");
+    WebElement achievedSavingsValues = getElement(achievedSavingsTable).findElement(By.tagName("tr"));
+    List<WebElement> achievedSavingsValues2 = achievedSavingsValues.findElements(By.tagName("td"));
+    //By initiativeAchievedSavingsTxt = By.xpath("//*[@id=\"ncgr_id_7-table\"]/tfoot/tr/td[1]");
     By initiativeDescriptionCard = By.xpath("//initiative-description");
     WebElement initiativeDescriptionTxt = getElement(initiativeDescriptionCard).findElement(By.tagName("h6"));
     By initiativeDateCard = By.xpath("//initiative-dates");
     List<WebElement> initiativeDats = getElement(initiativeDateCard).findElements(By.tagName("h6"));
     WebElement startDateTxt = initiativeDats.get(0);
-    WebElement durationTxt = initiativeDats.get(1);
-    WebElement endDateTxt = initiativeDats.get(2);
+    WebElement durationTxt = initiativeDats.get(2);
+    WebElement endDateTxt = initiativeDats.get(1);
 
     By backBtn = By.xpath("//button[@class='ncgr-ripple ncgr-element ncgr-button-outlined ncgr-button-gray-75 ncgr-button ncgr-component']");
 
@@ -117,8 +121,19 @@ public class CompleteInitiativeDetailsPage extends PageBase{
     public void VerifyThatInitiativeAchievedSavingsIsDisplay() throws InterruptedException {
         Thread.sleep(1500);
         scrollToBottom2();
-        Assert.assertNotEquals(getTxt(initiativeAchievedSavingsTxt),"");
-        System.out.println("Initiative Achieved Savings is : " + getTxt(initiativeAchievedSavingsTxt));
+//        Assert.assertNotEquals(getTxt(initiativeAchievedSavingsTxt),"");
+//        System.out.println("Initiative Achieved Savings is : " + getTxt(initiativeAchievedSavingsTxt));
+        Assert.assertNotEquals(achievedSavingsValues2.get(0).getText(),"");
+        System.out.println("Initiative Achieved Savings is : " + achievedSavingsValues2.get(0).getText());
+        Assert.assertNotEquals(achievedSavingsValues2.get(1).getText(),"");
+        System.out.println("Initiative Achieved Savings is : " + achievedSavingsValues2.get(1).getText());
+        Assert.assertNotEquals(achievedSavingsValues2.get(2).getText(),"");
+        System.out.println("Initiative Achieved Savings is : " + achievedSavingsValues2.get(2).getText());
+        Assert.assertNotEquals(achievedSavingsValues2.get(3).getText(),"");
+        System.out.println("Initiative Achieved Savings is : " + achievedSavingsValues2.get(3).getText());
+        Assert.assertNotEquals(achievedSavingsValues2.get(4).getText(),"");
+        System.out.println("Initiative Achieved Savings is : " + achievedSavingsValues2.get(4).getText());
+
     }
 
     public void VerifyThatInitiativeDescriptionIsDisplay() throws InterruptedException {

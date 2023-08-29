@@ -3,9 +3,9 @@
     <!--parameter name="browser" value="chrome-headless"></parameter -->
     <test name="Complete Initiative Data" preserve-order="true">
         <classes>
-            <class name="SearchFeatures.LoginTest"/>
-            <class name="InitiativesCompleteDataFeatures.OpenInitiativeTest"/>
-            <class name="tests.CompletedInitiativeDataTest"/>
+            <class name="tests.LoginTest"/>
+            <!--class name="InitiativesCompleteDataFeatures.OpenInitiativeTest"/-->
+            <class name="SearchFeatures.SearchByDurationTest"/>
         </classes>
     </test>
 </suite>

@@ -11,7 +11,7 @@
             <class name="InitiativesCompleteDataFeatures.VerifyThatInitiativeAchievedSavingsIsMandatoryFiledTest"/>
             <class name="InitiativesCompleteDataFeatures.VerifyThatInitiativeDescriptionIsMandatoryFiledTest"/>
             <class name="InitiativesCompleteDataFeatures.VerifyThatStartDateIsMandatoryFiledTest"/>
-            <class name="InitiativesCompleteDataFeatures.VerifyThatDurationIsMandatoryFiledTest"/>
+            <class name="InitiativesCompleteDataFeatures.VerifyThatEndDateIsMandatoryFiledTest"/>
         </classes>
     </test>
 </suite>

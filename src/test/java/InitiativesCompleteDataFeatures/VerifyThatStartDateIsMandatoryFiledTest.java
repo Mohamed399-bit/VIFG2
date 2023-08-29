@@ -25,8 +25,12 @@ public class VerifyThatStartDateIsMandatoryFiledTest extends TestBase {
     InitiativeAchievedSavingsPage initiativeAchievedSavingsObject;
     OwnerEntityPage ownerEntityObject;
     SavePopupPage savePopupObject;
+    CalenderPage calenderObject;
     ErrorMessagePage errorMessageObject;
     int durationNumber = Helper.generateRandomNumber2(10,30);
+    int randomNumMonth2 = Helper.generateRandomNumber2(0,11);
+    int randomYear2 = Helper.generateRandomNumber2(2023,2024);
+    int randomNumDay2 = Helper.generateRandomNumber2(1,30);
 
     @Test(priority = 11)
     @Severity(SeverityLevel.CRITICAL)
@@ -68,7 +72,12 @@ public class VerifyThatStartDateIsMandatoryFiledTest extends TestBase {
         initiativeAchievedSavingsObject.enterInitiativeAchievedSavings(Helper.generateRandomNumber(3)+"000");
 
         initiativeDetailsObject.enterInitiativeDescription(Helper.generateRandomWords2(400));
-        initiativeDetailsObject.enterInitiativeDurationPerMonth(Integer.toString(durationNumber));
+        initiativeDetailsObject.clickOnCalenderEndDateIcon();
+
+        calenderObject = new CalenderPage(driver);
+        calenderObject.selectYearByIndex(Integer.toString(randomYear2));
+        calenderObject.selectMonthByIndex(randomNumMonth2);
+        calenderObject.selectDay(Integer.toString(randomNumDay2));
         initiativeDetailsObject.clickOnSaveButton();
 
         savePopupObject = new SavePopupPage(driver);

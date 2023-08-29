@@ -13,6 +13,10 @@ public class BackToExistInitiativePageTest extends TestBase{
     InitiativeAchievedSavingsPage initiativeAchievedSavingsObject;
     OwnerEntityPage ownerEntityObject;
     CalenderPage calenderObject;
+
+    int randomNumMonth2 = Helper.generateRandomNumber2(0,11);
+    int randomYear2 = Helper.generateRandomNumber2(2023,2024);
+    int randomNumDay2 = Helper.generateRandomNumber2(1,30);
     @Test(priority = 4)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Back To Exist Initiative Page")
@@ -51,7 +55,11 @@ public class BackToExistInitiativePageTest extends TestBase{
         calenderObject.selectYearByIndex("2022");
         calenderObject.selectDay("15");
 
-        initiativeDetailsObject.enterInitiativeDurationPerMonth(Helper.generateRandomNumber(1));
+        initiativeDetailsObject.clickOnCalenderEndDateIcon();
+
+        calenderObject.selectYearByIndex(Integer.toString(randomYear2));
+        calenderObject.selectMonthByIndex(randomNumMonth2);
+        calenderObject.selectDay(Integer.toString(randomNumDay2));
         initiativeDetailsObject.clickOnBackButton();
 
     }

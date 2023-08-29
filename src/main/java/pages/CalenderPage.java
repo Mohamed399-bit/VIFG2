@@ -23,15 +23,18 @@ public class CalenderPage extends PageBase{
     By calenderBody = By.xpath("//ncgr-datepicker-month[@role='grid']");
 
     public void selectMonthByIndex(int month){
+        System.out.println("Month is : " + month);
         selectItemFromListByIndex(monthList,month);
     }
 
     public void selectYearByIndex(String year){
+        System.out.println("Year is : " + year);
         selectItemFromListByText(yearList,year);
     }
 
     public void selectDay(String day){
 
+        System.out.println("Day is : " + day);
         List<WebElement> rows = getElement(calenderBody).findElements
                 (By.xpath("//div[@class='ncgr-dp-week ng-star-inserted']"));
         for(WebElement row : rows){

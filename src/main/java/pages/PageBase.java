@@ -74,6 +74,10 @@ public class PageBase {
         jse.executeScript("scrollBy(0,600)");
     }
 
+    protected void scrollToBottom4() {
+        jse.executeScript("scrollBy(0,1500)");
+    }
+
     protected void scrollToUp() {
         jse.executeScript("scrollBy(0,-650)");
     }
@@ -117,6 +121,12 @@ public class PageBase {
     public void waitUntilLoaderOfTableDisappear(){
         wait.until(ExpectedConditions.invisibilityOfAllElements(
                 driver.findElement(By.xpath("//i[@class='ncgr-table__loading-icon ncgri ncgri-spin ncgri-spinner']"))));
+    }
+
+    public void uploadFile(WebElement element){
+        String fileName = "Test.pdf";
+        String filePath = System.getProperty("user.dir") + "/Uploads/" + fileName;
+        element.sendKeys(filePath);
     }
 
 

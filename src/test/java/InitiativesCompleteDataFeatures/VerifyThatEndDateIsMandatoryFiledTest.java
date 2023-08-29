@@ -16,7 +16,7 @@ import tests.TestBase;
 import utilities.Helper;
 import utilities.SetURL;
 
-public class VerifyThatDurationIsMandatoryFiledTest extends TestBase {
+public class VerifyThatEndDateIsMandatoryFiledTest extends TestBase {
     ExistInitiativesPage existInitiativesObject;
     InitiativeDetailsPage initiativeDetailsObject;
     initiativeFundingStatusFiledPage initiativeFundingStatusFiledObject;
@@ -86,7 +86,7 @@ public class VerifyThatDurationIsMandatoryFiledTest extends TestBase {
         errorMessageObject = new ErrorMessagePage(driver);
         errorMessageObject.VerifyThatErrorMessageDisplay("جميع البيانات المطلوبة بشكل صحيح");
 
-        initiativeDetailsObject.VerifyFromDurationValidationMessage("المدة الزمنية بالاشهر");
+        initiativeDetailsObject.VerifyFromEndDateValidationMessage("تاريخ انتهاء المبادرة");
         initiativeDetailsObject.clickOnBackButton();
 
         SetURL.refreshPage();

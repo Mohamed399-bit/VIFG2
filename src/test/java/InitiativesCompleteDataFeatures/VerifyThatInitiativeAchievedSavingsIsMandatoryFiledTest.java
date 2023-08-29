@@ -29,8 +29,11 @@ public class VerifyThatInitiativeAchievedSavingsIsMandatoryFiledTest extends Tes
     ErrorMessagePage errorMessageObject;
 
     int randomNumMonth = Helper.generateRandomNumber2(0,11);
-    int randomYear = Helper.generateRandomNumber2(2020,2023);
+    int randomYear = Helper.generateRandomNumber2(2020,2022);
     int randomNumDay = Helper.generateRandomNumber2(1,30);
+    int randomNumMonth2 = Helper.generateRandomNumber2(0,11);
+    int randomYear2 = Helper.generateRandomNumber2(2023,2024);
+    int randomNumDay2 = Helper.generateRandomNumber2(1,30);
     int durationNumber = Helper.generateRandomNumber2(10,30);
 
     @Test(priority = 9)
@@ -80,7 +83,11 @@ public class VerifyThatInitiativeAchievedSavingsIsMandatoryFiledTest extends Tes
         calenderObject.selectYearByIndex(Integer.toString(randomYear));
         calenderObject.selectDay(Integer.toString(randomNumDay));
 
-        initiativeDetailsObject.enterInitiativeDurationPerMonth(Integer.toString(durationNumber));
+        initiativeDetailsObject.clickOnCalenderEndDateIcon();
+
+        calenderObject.selectYearByIndex(Integer.toString(randomYear2));
+        calenderObject.selectMonthByIndex(randomNumMonth2);
+        calenderObject.selectDay(Integer.toString(randomNumDay2));
         initiativeDetailsObject.clickOnSaveButton();
 
         savePopupObject = new SavePopupPage(driver);

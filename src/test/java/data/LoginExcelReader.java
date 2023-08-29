@@ -1,10 +1,10 @@
 /*
- * Copyright (c) buseet 2021.
+ * Copyright (c) NCGR 2023.
  * All Rights Reserved.
  *
  * ver          Developer          Date        Comments
  * ----- ---------------------  ----------  ----------------------------------------
- * 1.00  Eng. Mohamed Abden  28/10/2021  - Script created.
+ * 1.00  Eng. Mohamed Abden 17/08/2023 - Script created.
  */
 package data;
 

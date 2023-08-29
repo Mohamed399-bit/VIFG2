@@ -33,8 +33,10 @@ public class InitiativeDetailsPage extends PageBase{
     By approvedCostsTxt = By.id("approvedCosts");
     By editIcon = By.xpath("//button[@icon='ncgri ncgri-pencil']");
     By approvedInitiativeDescriptionTxt = By.id("approvedInitiativeDescription");
-    By calendarBtn = By.xpath("//button[@class='ncgr-datepicker-icon-button icon-filled-calendar']");
-    By initiativeDurationPerMonthTxt = By.id("initiativeDurationPerMonth");
+    By calendarStartDateBtn = By.xpath("//ncgr-datepicker-gh[@formcontrolname='initiativeStartDate']//child::button[@class='ncgr-datepicker-icon-button icon-filled-calendar']");
+    By calendarEndDateBtn = By.xpath("//ncgr-datepicker-gh[@formcontrolname='initiativeEndDate']//child::button[@class='ncgr-datepicker-icon-button icon-filled-calendar']");
+    //By initiativeDurationPerMonthTxt = By.id("initiativeDurationPerMonth");
+    By initiativeDuration = By.id("period");
     By cancelBtn = By.xpath("//button[@class='ncgr-ripple ncgr-element ncgr-button-danger ncgr-button ncgr-component']");
     By saveBtn = By.xpath("//button[@class='ncgr-ripple ncgr-element ncgr-button-primary ncgr-button ncgr-component']");
     By backBtn = By.xpath("//button[@class='ncgr-ripple ncgr-element ncgr-button-outlined ncgr-button-gray-75 ncgr-button ncgr-component']");
@@ -46,10 +48,11 @@ public class InitiativeDetailsPage extends PageBase{
     By validationMessageInitiativeFundingStatus = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[3]/div/div/div/div[3]/div[1]/div/span");
     By validationMessageInitiativeClassification = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[3]/div/div/div/div[3]/div[2]/div/span");
     By validationMessageApprovedCosts = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[3]/div/div/div/div[3]/div[3]/div/div/div");
-    By validationMessageInitiativeAchievedSavings = By.xpath("//*[@id=\"ncgr_id_8-table\"]/tfoot/tr/td[1]/span");
+    By validationMessageInitiativeAchievedSavings = By.xpath("//ncgr-input-number[@id='initiativeAchievedSavings']//following-sibling::span");
     By validationMessageInitiativeDescription = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[4]/div/div/div/div/div/div/span");
     By validationMessageStartDate = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[5]/div/div/div/div/div[1]/div/div/div");
     By validationMessageDuration = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[5]/div/div/div/div/div[2]/div/div/div");
+    By validationMessageForEndDate = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[5]/div/div/div/div/div[2]/div/div/div");
     By durationLabel = By.xpath("//*[@id=\"ncgr-tabpanel-0\"]/form/ncgr-card[5]/div/div/div/div/div[2]/div/label");
     By headingSection = By.xpath("//div[@class='heading']");
     By accountsDiv = By.xpath("//ncgr-table[@class='ncgr-element mt-4 mb-2 d-block']");
@@ -107,18 +110,25 @@ public class InitiativeDetailsPage extends PageBase{
 
     public void clickOnCalenderIcon() throws InterruptedException {
         scrollToBottom();
-        wait.until(ExpectedConditions.elementToBeClickable(calendarBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(calendarStartDateBtn));
         Thread.sleep(2000);
-        clickButton(calendarBtn);
+        clickButton(calendarStartDateBtn);
     }
 
-    public void enterInitiativeDurationPerMonth(String numberOfMonths){
-        WebElement durationTxt = getElement(initiativeDurationPerMonthTxt).findElement(By.tagName("input"));
-        clickOnButtonUsingJavaScript(durationTxt);
-        durationTxt.sendKeys(numberOfMonths);
-        clickButton(durationLabel);
+    public void clickOnCalenderEndDateIcon() throws InterruptedException {
         scrollToBottom();
+        wait.until(ExpectedConditions.elementToBeClickable(calendarEndDateBtn));
+        Thread.sleep(2000);
+        clickButton(calendarEndDateBtn);
     }
+
+//    public void enterInitiativeDurationPerMonth(String numberOfMonths){
+//        WebElement durationTxt = getElement(initiativeDurationPerMonthTxt).findElement(By.tagName("input"));
+//        clickOnButtonUsingJavaScript(durationTxt);
+//        durationTxt.sendKeys(numberOfMonths);
+//        clickButton(durationLabel);
+//        scrollToBottom();
+//    }
 
     public void clickOnSaveButton(){
         scrollToBottom();
@@ -192,6 +202,12 @@ public class InitiativeDetailsPage extends PageBase{
         System.out.println("Validation message for Start Date : " +  getTxt(validationMessageStartDate));
     }
 
+    public void VerifyFromEndDateValidationMessage(String message){
+        Assert.assertTrue(getTxt(validationMessageForEndDate).contains(message));
+        //Assert.assertEquals(getTxt(validationMessageStartDate),message);
+        System.out.println("Validation message for End Date : " +  getTxt(validationMessageForEndDate));
+    }
+
     public void VerifyFromDurationValidationMessage(String message){
         Assert.assertTrue(getTxt(validationMessageDuration).contains(message));
         //Assert.assertEquals(getTxt(validationMessageDuration),message);
@@ -217,5 +233,9 @@ public class InitiativeDetailsPage extends PageBase{
         clickOnButtonUsingJavaScript(detailsLink);
         waitUntilLoaderOfTableDisappear();
 
+    }
+
+    public void getDuration(){
+        System.out.println("Duration is : " + getTxt(initiativeDuration));
     }
 }

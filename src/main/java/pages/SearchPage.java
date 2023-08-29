@@ -31,7 +31,9 @@ public class SearchPage extends PageBase{
     By searchIcon = By.xpath("//i[@class='ncgri ncgri-search']");
     By search = By.xpath("//span[@class='ncgr-input-icon-left']");
     By name = By.xpath("//h5[@class='mb-3 font-weight-bold']");
-    By header = By.xpath("//*[@id=\"ncgr_id_3-table\"]/thead/tr/th[7]");
+    By tablelHeader = By.xpath("//table[@role='table']//child::th[7]");
+    By durationList = By.xpath("//ncgr-dropdown[@formcontrolname='durationDays']");
+
     public void clickOnGovAgencyCodeList(){
         List<WebElement> x = getElement(govAgencyCodeList).findElements(By.tagName("div"));
         WebElement arrow = x.get(x.size()-1);
@@ -54,13 +56,21 @@ public class SearchPage extends PageBase{
         scrollToBottom2();
     }
 
+    public void clickOnDurationList() throws InterruptedException {
+        List<WebElement> x = getElement(durationList).findElements(By.tagName("div"));
+        WebElement arrow = x.get(x.size()-1);
+        clickOnButtonUsingJavaScript(arrow);
+        Thread.sleep(500);
+        scrollToBottom2();
+    }
+
     public void searchByUIC(String UIC) throws InterruptedException {
         Thread.sleep(1900);
         waitUntilLoaderDisappear();
         System.out.println("Search for UIC : " + UIC);
         clickOnButtonUsingJavaScript(getElement(UICTxt));
         setTextWebElement(UICTxt,UIC);
-        clickButton(header);
+        clickButton(tablelHeader);
         Thread.sleep(1000);
         clickButton(searchIcon);
         //getElement(UICTxt).sendKeys(Keys.ENTER);
@@ -76,7 +86,7 @@ public class SearchPage extends PageBase{
     public void clickOnSearchButton() throws InterruptedException {
         waitUntilLoaderDisappear();
         Thread.sleep(2000);
-        clickButton(header);
+        clickButton(tablelHeader);
         clickOnButtonUsingJavaScript(getElement(searchBtn));
         scrollToBottom();
     }

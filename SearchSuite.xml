@@ -10,7 +10,7 @@
             <class name="SearchFeatures.SearchByInitiativeIDTest"/>
             <class name="SearchFeatures.SearchByProgramNameTest"/>
             <class name="SearchFeatures.SearchByEntityTest"/>
-            <class name="SearchFeatures.SearchByInvalidDurationTest"/>
+            <!--class name="SearchFeatures.SearchByInvalidDurationTest"/-->
             <class name="SearchFeatures.SearchByInvalidEntityTest"/>
             <class name="SearchFeatures.SearchByInvalidInitiativeIDTest"/>
             <class name="SearchFeatures.SearchByInvalidUICTest"/>

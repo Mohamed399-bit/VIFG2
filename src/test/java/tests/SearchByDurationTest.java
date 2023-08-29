@@ -33,7 +33,7 @@ public class SearchByDurationTest extends TestBase{
         searchObject.searchByDuration(existInitiativesObject.durationTxt);
         searchObject.clickOnSearchButton();
 
-        existInitiativesObject.VerifyThatSearchByDurationIsTrue(existInitiativesObject.durationTxt);
+        existInitiativesObject.VerifyThatSearchByDurationIsTrue();
         Thread.sleep(2000);
 
         searchObject.clickOnClearButton();

@@ -48,6 +48,6 @@ public class SearchByEntityTest extends TestBase {
 
         SetURL.refreshPage();
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
     }
 }
