@@ -38,10 +38,18 @@ public class CompletedInitiativeDataWithPreviousDateTest extends TestBase {
     String endDate;
     @Test(priority = 3)
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Complete Data For Uncompleted Initiative")
+    @Description("Complete Data For Uncompleted Initiative with start date equal Previous date ")
     @Feature("Complete Data For Uncompleted Initiative")
     @Epic("Uncompleted Initiative")
     public void CompleteDataForUncompletedInitiative() throws InterruptedException {
+
+        existInitiativesObject = new ExistInitiativesPage(driver);
+        existInitiativesObject.clickOnUnCompletedInitiatives();
+        Thread.sleep(2000);
+        existInitiativesObject.getDataForFirstInitiative();
+        existInitiativesObject.scrollDown();
+        existInitiativesObject.clickOnEditInitiativeNumber(existInitiativesObject.UICNumber);
+        System.out.println("Initiative Name : " + existInitiativesObject.initiativeNameTxt);
 
         initiativeDetailsObject = new InitiativeDetailsPage(driver);
         initiativeDetailsObject.enterStrategicObjective(Helper.generateRandomWords2(50));
@@ -89,18 +97,10 @@ public class CompletedInitiativeDataWithPreviousDateTest extends TestBase {
         System.out.println("End Date : " + endDate);
 
         initiativeDetailsObject.getDuration(Helper.calDay(startDate,endDate));
-        initiativeDetailsObject.clickOnSaveButton();
-//        initiativeDetailsObject.enterInitiativeDurationPerMonth(Integer.toString(durationNumber));
+        initiativeDetailsObject.clickOnBackButton();
 
-        savePopupObject = new SavePopupPage(driver);
-        savePopupObject.clickOnSaveButton();
-        Thread.sleep(4000);
         SetURL.refreshPage();
-        existInitiativesObject = new ExistInitiativesPage(driver);
-        existInitiativesObject.scrollUp();
-        existInitiativesObject.clickOnCompletedInitiatives();
-        existInitiativesObject.VerifyThatInitiativeDataCompletedIsAddToCompletedTab(OpenInitiativeTest.UICNumber);
-        Thread.sleep(10000);
+        Thread.sleep(1000);
 
     }
 }

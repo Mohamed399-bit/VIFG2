@@ -12,6 +12,9 @@
             <class name="InitiativesCompleteDataFeatures.VerifyThatInitiativeDescriptionIsMandatoryFiledTest"/>
             <class name="InitiativesCompleteDataFeatures.VerifyThatStartDateIsMandatoryFiledTest"/>
             <class name="InitiativesCompleteDataFeatures.VerifyThatEndDateIsMandatoryFiledTest"/>
+            <class name="InitiativesCompleteDataFeatures.CompletedInitiativeDataWithCurrentDateTest"/>
+            <class name="InitiativesCompleteDataFeatures.CompletedInitiativeDataWithPreviousDateTest"/>
+            <class name="InitiativesCompleteDataFeatures.CompletedInitiativeDataWithNextDateTest"/>
         </classes>
     </test>
 </suite>
