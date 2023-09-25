@@ -28,9 +28,9 @@ public class EnterRegionAndOwnerDataTest extends TestBase {
         createFundingRequestStepObject.clickOnAdministrativeRegions();
 
         administrativeRegionsObject = new AdministrativeRegionsPage(driver);
-        administrativeRegionsObject.selectAdministrativeRegions(0);
+        administrativeRegionsObject.selectAdministrativeRegions(Helper.generateRandomNumber2(0, 4));
         createFundingRequestStepObject.enterInitiativeOwnerData(Helper.generateRandomWords2(3),
-                Helper.generateRandomName(7)+"@Test.com" ,"56"+Helper.generateRandomNumber(8));
+                Helper.generateRandomName(7)+"@Test.com" ,"56"+Helper.generateRandomNumber(7));
         Thread.sleep(1000);
 
     }

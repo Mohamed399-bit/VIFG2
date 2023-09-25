@@ -52,12 +52,12 @@ public class BackToExistInitiativePageTest extends TestBase{
 
         calenderObject = new CalenderPage(driver);
         calenderObject.selectMonthByIndex(5);
-        calenderObject.selectYearByIndex("2022");
+        calenderObject.selectYearByText("2022");
         calenderObject.selectDay("15");
 
         initiativeDetailsObject.clickOnCalenderEndDateIcon();
 
-        calenderObject.selectYearByIndex(Integer.toString(randomYear2));
+        calenderObject.selectYearByText(Integer.toString(randomYear2));
         calenderObject.selectMonthByIndex(randomNumMonth2);
         calenderObject.selectDay(Integer.toString(randomNumDay2));
         initiativeDetailsObject.clickOnBackButton();

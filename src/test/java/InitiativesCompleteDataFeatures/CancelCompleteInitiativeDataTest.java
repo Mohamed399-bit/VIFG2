@@ -75,12 +75,12 @@ public class CancelCompleteInitiativeDataTest extends TestBase {
 
         calenderObject = new CalenderPage(driver);
         calenderObject.selectMonthByIndex(randomNumMonth);
-        calenderObject.selectYearByIndex(Integer.toString(randomYear));
+        calenderObject.selectYearByText(Integer.toString(randomYear));
         calenderObject.selectDay(Integer.toString(randomNumDay));
 
         initiativeDetailsObject.clickOnCalenderEndDateIcon();
 
-        calenderObject.selectYearByIndex(Integer.toString(randomYear2));
+        calenderObject.selectYearByText(Integer.toString(randomYear2));
         calenderObject.selectMonthByIndex(randomNumMonth2);
         calenderObject.selectDay(Integer.toString(randomNumDay2));
         initiativeDetailsObject.clickOnCancelButton();

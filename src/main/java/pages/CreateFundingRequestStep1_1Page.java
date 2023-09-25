@@ -74,7 +74,7 @@ public class CreateFundingRequestStep1_1Page extends PageBase{
         scrollToBottom();
         Thread.sleep(1500);
         scrollToBottom();
-        System.out.println("Size is : " + uploadedFiles.size());
+        //System.out.println("Size is : " + uploadedFiles.size());
 
         Thread.sleep(1000);
        // String fileName = "Test.pdf";

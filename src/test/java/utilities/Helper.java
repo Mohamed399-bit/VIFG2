@@ -16,6 +16,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -92,5 +97,153 @@ public class Helper {
         int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
         return randomNum;
     }
+
+    public static String getSystemDate() {
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        //get current date time with Date()
+        Date date = new Date();
+        // Now format the date
+        String date1 = dateFormat.format(date);
+        // Print the Date
+        System.out.println(date1);
+        return date1;
+    }
+
+    public static String getTodayDate() {
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+        //get current date time with Date()
+        Date date = new Date();
+        // Now format the date
+        String date1 = dateFormat.format(date);
+        // Print the Date
+        //System.out.println(date1);
+        return date1;
+    }
+
+    public static String getTodayMonth() {
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("MM");
+        //get current date time with Date()
+        Date date = new Date();
+        // Now format the date
+        String date1 = dateFormat.format(date);
+        // Print the Date
+        System.out.println(date1);
+        return date1;
+    }
+
+    public static int getCurrentMonth() {
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("MM");
+        //get current date time with Date()
+        Date date = new Date();
+        // Now format the date
+        String date1 = dateFormat.format(date);
+        // Print the Date
+       // System.out.println(date1);
+        int date2 = Integer.parseInt(date1);
+        return date2-1;
+    }
+
+    public static String getTodayYear() {
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("yyyy");
+        //get current date time with Date()
+        Date date = new Date();
+        // Now format the date
+        String date1 = dateFormat.format(date);
+        // Print the Date
+        //System.out.println(date1);
+        return date1;
+    }
+
+    public static int  nextDate;
+    public static String createNextDate(){
+        String currentDate = getTodayDate();
+        int currentDate1 = Integer.parseInt(currentDate);
+        if (currentDate1 == 30){
+            nextDate = 1;
+        }else if (currentDate1 >= 1){
+            nextDate = Integer.parseInt(currentDate) + 1;
+        }
+        String nextDate2 = String.valueOf(nextDate);
+        System.out.println("Next Date is : " + nextDate2);
+
+        return nextDate2;
+    }
+
+    static int PreviousDate;
+    public static String createPreviousDate(){
+
+        String currentDate = getTodayDate();
+        int currentDate1 = Integer.parseInt(currentDate);
+        if (currentDate1 <= 30){
+            PreviousDate = Integer.parseInt(currentDate)-1;
+        }else if (currentDate1 == 1){
+            PreviousDate = 30;
+        }
+        String PreviousDate2 = String.valueOf(PreviousDate);
+        System.out.println("Previous Date is : " + PreviousDate2);
+
+        return PreviousDate2;
+    }
+
+
+    public static String createYear(int index){
+        String currentYear = getTodayYear();
+        int year = Integer.parseInt(currentYear) + index;
+        String year1 = String.valueOf(year);
+        //System.out.println("Year is : " + year1);
+        return  year1;
+    }
+
+
+    static int previousMonth;
+    public static int enterPreviousMonth(){
+        int today = Integer.parseInt(getTodayDate());
+
+        if (today == 1){
+            previousMonth = Integer.parseInt(getTodayMonth())-1;
+
+
+        }else if (today <= 30){
+            previousMonth = Integer.parseInt(getTodayMonth());
+        }
+        System.out.println("Month : " + previousMonth);
+        return previousMonth-1;
+    }
+
+    public static int nextMonth;
+    public static int enterNextMonth(){
+        int today = Integer.parseInt(getTodayDate());
+        if (today == 30){
+            nextMonth = Integer.parseInt(getTodayMonth())+1;
+
+        }else if (today >= 1 ){
+            nextMonth = Integer.parseInt(getTodayMonth());
+        }
+        System.out.println("Month : " + nextMonth);
+        return  nextMonth-1;
+    }
+
+    public static String calDay(String startDate, String endDate){
+
+        LocalDate sDate = LocalDate.parse(startDate);
+        LocalDate eDate = LocalDate.parse(endDate);
+
+        LocalDate ssDate = LocalDate.of(sDate.getYear(), sDate.getMonth(), sDate.getDayOfMonth());
+        LocalDate eeDate = LocalDate.of(eDate.getYear(), eDate.getMonth(), eDate.getDayOfMonth());
+
+        Period period = Period.between(ssDate, eeDate);
+
+        String duration = period.getYears() + " سنة - "
+                + period.getMonths() + " أشهر - "
+                + period.getDays() + " يوم";
+        System.out.println("Duration is : " + duration);
+        return duration;
+    }
+
 
 }

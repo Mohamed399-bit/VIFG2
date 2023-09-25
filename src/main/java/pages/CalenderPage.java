@@ -27,7 +27,7 @@ public class CalenderPage extends PageBase{
         selectItemFromListByIndex(monthList,month);
     }
 
-    public void selectYearByIndex(String year){
+    public void selectYearByText(String year){
         System.out.println("Year is : " + year);
         selectItemFromListByText(yearList,year);
     }

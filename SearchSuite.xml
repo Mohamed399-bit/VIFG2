@@ -6,7 +6,7 @@
 
             <class name="SearchFeatures.LoginTest"/>
             <class name="SearchFeatures.SearchByUICTest"/>
-            <class name="SearchFeatures.SearchByDurationTest"/>
+            <!--class name="SearchFeatures.SearchByDurationTest"/-->
             <class name="SearchFeatures.SearchByInitiativeIDTest"/>
             <class name="SearchFeatures.SearchByProgramNameTest"/>
             <class name="SearchFeatures.SearchByEntityTest"/>

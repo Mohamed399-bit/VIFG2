@@ -1,21 +1,32 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.ExistInitiativesPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.LunchPage;
 import utilities.Helper;
-
-import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class test333{
 
-    LunchPage lunchObject;
-    LoginPage loginObject;
-    HomePage homeObject;
-    ExistInitiativesPage  existInitiativesObject;
+        public double div2(double number,double size){
+        double value;
+        value = number/size;
+        System.out.println(value);
+        return value;
+
+            }
+
+    int randomNum;
+            public void generate() {
+
+
+                for (int i = 0; ; i++) {
+                     randomNum = (int) (Math.random() * 1000000 + 0);
+                    if (randomNum % 24 == 0) {
+                        System.out.println(randomNum);
+                        return;
+                    }
+                }
+            }
+
 
 
     @Test()
@@ -24,7 +35,26 @@ public class test333{
 //        int randomNum = ThreadLocalRandom.current().nextInt(2019, 2020 + 1);
 //        System.out.println(randomNum);
 
-        System.out.println(System.getProperty("user.dir")+ "\\src\\test\\java\\config\\config.properties");
+//        generate();
+//        div2(randomNum,3);
+//        div2(randomNum,24);
+//        div2(randomNum,4);
+//        Helper.getSystemDate();
+//        Helper.getTodayDate();
+//        Helper.getTodayMonth();
+//        Helper.getTodayYear();
+//        Helper.getTodayDate();
+//        Helper.getTodayMonth();
+//        Helper.createNextDate();
+//        Helper.createPreviousDate();
+//        Helper.createYear(1);
+//        Helper.createYear(-1);
+//        Helper.enterPreviousMonth();
+
+        Helper.calDay("2023-09-26","2025-02-23");
+        Assert.assertEquals("0 سنة - 11 أشهر - 12 يوم","0 سنة - 11 أشهر - 12 يوم");
+
+        //System.out.println(System.getProperty("user.dir")+ "\\src\\test\\java\\config\\config.properties");
 
     }
 }

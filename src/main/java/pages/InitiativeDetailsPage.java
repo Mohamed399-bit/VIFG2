@@ -34,7 +34,9 @@ public class InitiativeDetailsPage extends PageBase{
     By editIcon = By.xpath("//button[@icon='ncgri ncgri-pencil']");
     By approvedInitiativeDescriptionTxt = By.id("approvedInitiativeDescription");
     By calendarStartDateBtn = By.xpath("//ncgr-datepicker-gh[@formcontrolname='initiativeStartDate']//child::button[@class='ncgr-datepicker-icon-button icon-filled-calendar']");
+    By startDate = By.xpath("//ncgr-datepicker-gh[@formcontrolname='initiativeStartDate']//child::input[@autocomplete='new-password']");
     By calendarEndDateBtn = By.xpath("//ncgr-datepicker-gh[@formcontrolname='initiativeEndDate']//child::button[@class='ncgr-datepicker-icon-button icon-filled-calendar']");
+    By endDate = By.xpath("//ncgr-datepicker-gh[@formcontrolname='initiativeEndDate']//child::input[@autocomplete='new-password']");
     //By initiativeDurationPerMonthTxt = By.id("initiativeDurationPerMonth");
     By initiativeDuration = By.id("period");
     By cancelBtn = By.xpath("//button[@class='ncgr-ripple ncgr-element ncgr-button-danger ncgr-button ncgr-component']");
@@ -235,7 +237,18 @@ public class InitiativeDetailsPage extends PageBase{
 
     }
 
-    public void getDuration(){
+    public void getDuration(String duration){
+        Assert.assertEquals(getTxt(initiativeDuration),duration);
         System.out.println("Duration is : " + getTxt(initiativeDuration));
+    }
+
+    public void getStartDate(){
+        String startDate2 = getTxt(startDate);
+        System.out.println("Start Date : " + startDate2);
+    }
+
+    public void getEndDate(){
+        String endDate2 = getTxt(endDate);
+        System.out.println("End Date : " + endDate2);
     }
 }

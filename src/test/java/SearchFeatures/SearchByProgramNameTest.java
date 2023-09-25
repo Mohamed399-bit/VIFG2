@@ -42,8 +42,8 @@ public class SearchByProgramNameTest extends TestBase {
         vrpProgramListObject.selectProgramName(existInitiativesObject.programNameTxt);
         searchObject.clickOnSearchButton();
 
-        //existInitiativesObject.VerifyThatSearchByProgramNameIsTrue(existInitiativesObject.programNameTxt);
-        //searchObject.clickOnClearButton();
+        existInitiativesObject.VerifyThatSearchByProgramNameIsTrue(existInitiativesObject.programNameTxt);
+        searchObject.clickOnClearButton();
         SetURL.refreshPage();
 
         Thread.sleep(3000);

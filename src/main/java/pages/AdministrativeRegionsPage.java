@@ -22,14 +22,15 @@ public class AdministrativeRegionsPage extends PageBase{
     }
 
     By administrativeRegionsList = By.xpath("//ul[@role='listbox']");
-    By UICCodeTxt = By.xpath("//input[@formcontrolname='uic']");
+    By headerOfSection = By.xpath("//h5[contains(text(),'المناطق الادارية المستهدفة')]");
     List<WebElement> listItems = getElement(administrativeRegionsList).findElements(By.tagName("li"));
 
-    public void selectAdministrativeRegions (int index) throws InterruptedException {
+    public void     selectAdministrativeRegions (int index) throws InterruptedException {
         System.out.println("Administrative Regions is : " + listItems.get(index).getText());
         clickOnButtonUsingJavaScript(listItems.get(index));
         Thread.sleep(1500);
-        clickButton(UICCodeTxt);
+       // clickOnButtonUsingJavaScript(getElement(headerOfSection));
+        clickButton(headerOfSection);
     }
 
 }

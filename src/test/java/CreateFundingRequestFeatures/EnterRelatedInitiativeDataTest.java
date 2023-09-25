@@ -33,12 +33,12 @@ public class EnterRelatedInitiativeDataTest extends TestBase {
         relatedInitiativeObject.clickOnVrpProgramList();
 
         vrpProgramListObject = new VRPProgramListPage(driver);
-        vrpProgramListObject.selectProgramName2(0);
+        vrpProgramListObject.selectProgramName2(Helper.generateRandomNumber2(0, 4));
 
         relatedInitiativeObject.clickOnRelatedInitiativeList();
 
         relateInitiativeListItemsObject = new RelateInitiativeListItemsPage(driver);
-        relateInitiativeListItemsObject.selectInitiative(0);
+        relateInitiativeListItemsObject.selectInitiative(Helper.generateRandomNumber2(0, 4));
         //relateInitiativeListItemsObject.VerifyThaInitiativeIsSelected(0);
 
         Thread.sleep(1000);

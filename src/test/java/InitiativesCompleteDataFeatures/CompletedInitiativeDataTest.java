@@ -15,6 +15,8 @@ import tests.TestBase;
 import utilities.Helper;
 import utilities.SetURL;
 
+import java.text.DecimalFormat;
+
 
 public class CompletedInitiativeDataTest extends TestBase {
 
@@ -32,7 +34,8 @@ public class CompletedInitiativeDataTest extends TestBase {
     int randomNumMonth2 = Helper.generateRandomNumber2(0,11);
     int randomYear2 = Helper.generateRandomNumber2(2023,2024);
     int randomNumDay2 = Helper.generateRandomNumber2(1,30);
-    int durationNumber = Helper.generateRandomNumber2(10,30);
+    String startDate;
+    String endDate;
     @Test(priority = 3)
     @Severity(SeverityLevel.CRITICAL)
     @Description("Complete Data For Uncompleted Initiative")
@@ -67,17 +70,28 @@ public class CompletedInitiativeDataTest extends TestBase {
         initiativeDetailsObject.clickOnCalenderIcon();
 
         calenderObject = new CalenderPage(driver);
-        calenderObject.selectYearByIndex(Integer.toString(randomYear));
+        calenderObject.selectYearByText(Integer.toString(randomYear));
         calenderObject.selectMonthByIndex(randomNumMonth);
         calenderObject.selectDay(Integer.toString(randomNumDay));
 
+        startDate = randomYear +"-" + new DecimalFormat("00").format((randomNumMonth+1)) +"-"
+                + new DecimalFormat("00").format(randomNumDay);
+        System.out.println("Start Date : " + startDate);
+
+
         initiativeDetailsObject.clickOnCalenderEndDateIcon();
 
-        calenderObject.selectYearByIndex(Integer.toString(randomYear2));
+        calenderObject.selectYearByText(Integer.toString(randomYear2));
         calenderObject.selectMonthByIndex(randomNumMonth2);
         calenderObject.selectDay(Integer.toString(randomNumDay2));
 
-        initiativeDetailsObject.getDuration();
+        endDate = randomYear2 +"-" + new DecimalFormat("00").format((randomNumMonth2+1)) +"-"
+                + new DecimalFormat("00").format(randomNumDay2);
+        System.out.println("End Date : " + endDate);
+
+        initiativeDetailsObject.getDuration(Helper.calDay(startDate,endDate));
+        initiativeDetailsObject.clickOnSaveButton();
+
         initiativeDetailsObject.clickOnSaveButton();
 //        initiativeDetailsObject.enterInitiativeDurationPerMonth(Integer.toString(durationNumber));
 
